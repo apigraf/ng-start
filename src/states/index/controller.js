@@ -6,8 +6,10 @@
  * Стейт страницы "Index"
  **/
 
-angular.module('ngs.states').controller('indexCtrl', function ($scope) {
-    class IndexCtrl {
+angular.module('ngs.states').controller('indexCtrl', function ($scope, StateCtrl) {
+    class IndexCtrl extends StateCtrl {
+        initialize() {
+        }
     }
 
     new IndexCtrl($scope);
