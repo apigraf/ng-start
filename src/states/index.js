@@ -12,6 +12,9 @@ angular.module('ngs.states', ['ui.router']).config(function ($stateProvider, $ur
         templateUrl: 'states/index/view.html',
         controller: 'indexCtrl',
         resolve: {
+            generic: function (initialize) {
+                return initialize();
+            }
         }
     }).state('home', {
         url: '/home',
@@ -19,6 +22,9 @@ angular.module('ngs.states', ['ui.router']).config(function ($stateProvider, $ur
         templateUrl: 'states/home/view.html',
         controller: 'homeCtrl',
         resolve: {
+            generic: function (initialize) {
+                return initialize();
+            }
         }
     }).state('about', {
         url: '/about',
@@ -26,6 +32,9 @@ angular.module('ngs.states', ['ui.router']).config(function ($stateProvider, $ur
         templateUrl: 'states/about/view.html',
         controller: 'aboutCtrl',
         resolve: {
+            generic: function (initialize) {
+                return initialize();
+            }
         }
     }).state('error', {
         url: '/error',
@@ -33,6 +42,9 @@ angular.module('ngs.states', ['ui.router']).config(function ($stateProvider, $ur
         templateUrl: 'states/error/view.html',
         controller: 'errorCtrl',
         resolve: {
+            generic: function (initialize) {
+                return initialize();
+            }
         }
     });
 });
