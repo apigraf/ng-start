@@ -1,4 +1,8 @@
 /**
+ * @ngdoc controller
+ * @name ngs.states:indexCtrl
+ *
+ * @description
  * Стейт страницы "Index"
  **/
 
