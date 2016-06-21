@@ -13,5 +13,26 @@ angular.module('ngs.states', ['ui.router']).config(function ($stateProvider, $ur
         controller: 'indexCtrl',
         resolve: {
         }
+    }).state('home', {
+        url: '/home',
+        abstract: false,
+        templateUrl: 'states/home/view.html',
+        controller: 'homeCtrl',
+        resolve: {
+        }
+    }).state('about', {
+        url: '/about',
+        abstract: false,
+        templateUrl: 'states/about/view.html',
+        controller: 'aboutCtrl',
+        resolve: {
+        }
+    }).state('error', {
+        url: '/error',
+        abstract: false,
+        templateUrl: 'states/error/view.html',
+        controller: 'errorCtrl',
+        resolve: {
+        }
     });
 });
