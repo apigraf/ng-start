@@ -3,6 +3,9 @@
  */
 
 var app = angular.module('ngs', [
+    'restangular',
+    'pascalprecht.translate',
+
     'ngs.config',
     'ngs.filters',
     'ngs.services',
@@ -12,8 +15,10 @@ var app = angular.module('ngs', [
     'ngs.components'
 ]).constant('_', _);
 
-app.run(function ($rootScope, $window, $templateCache) {
+app.run(function ($rootScope, $window, $templateCache, configuration, Restangular) {
     $rootScope._ = $window._;
+
+    Restangular.setBaseUrl(configuration.APIURL);
 
     return _.filter($window.JST, function (fileContent, fileName) {
         return $templateCache.put(fileName, fileContent());
@@ -22,4 +27,9 @@ app.run(function ($rootScope, $window, $templateCache) {
     $locationProvider.html5Mode({
         enabled: true
     });
+}).config(function ($translateProvider) {
+    $translateProvider.useLoader('translateLoader', {});
+    $translateProvider.useMessageFormatInterpolation();
+    $translateProvider.useSanitizeValueStrategy(null);
+    $translateProvider.preferredLanguage('ru');
 });

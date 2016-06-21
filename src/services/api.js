@@ -14,6 +14,9 @@ angular.module('ngs.services').service('APIService', function (Restangular) {
             var demoData = {
                 settings: {
                     locale: 'ru'
+                },
+                translations: {
+                    demo_data: 'Демонстрационные данные. И использование переменных: {DATA}'
                 }
             };
 
