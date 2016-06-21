@@ -1,0 +1,12 @@
+bower_components/
+node_modules/
+.tmp/
+.dist-tmp/
+dist/
+docs/
+
+# Мои персональные (сорри):
+.idea/
+tmp_info/
+shadow-src/
+npm-debug.log
