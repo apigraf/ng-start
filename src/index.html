@@ -1,0 +1,105 @@
+<!doctype html>
+<html class="no-js">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <base href="/">
+
+    <title>ng-start</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+
+    <link rel="shortcut icon" href="images/favicon.ico">
+
+    <!-- ========================================================= -->
+    <!-- Сборка стилей, установленных через Bower: -->
+    <!-- build:css styles/vendor.css -->
+    <!-- bower:css -->
+    <!-- endbower -->
+    <!-- endbuild -->
+
+    <!-- ========================================================= -->
+    <!-- Сборка стилей проекта: -->
+    <!-- build:css(.tmp) styles/main.css -->
+    <link rel="stylesheet" href="styles/main.css"/>
+    <!-- endbuild -->
+
+    <!-- ========================================================= -->
+    <!-- Стили для modernizr: -->
+    <style>
+        .noscript-visible-block {
+            display: none;
+        }
+        html.no-js .noscript-visible-block {
+            display: block;
+        }
+    </style>
+    <!-- Подключение modernizr: -->
+    <!-- build:js scripts/modernizr.js -->
+    <script src="../bower_components/modernizr/modernizr.js"></script>
+    <!-- endbuild -->
+
+    <!-- ========================================================= -->
+    <!-- Сборка скриптов, установленных через Bower: -->
+    <!-- build:js scripts/vendor.js -->
+    <!-- bower:js -->
+    <script src="../bower_components/es6-shim/es6-shim.js"></script>
+    <script src="../bower_components/traceur-runtime/traceur-runtime.js"></script>
+    <script src="../bower_components/modernizr/modernizr.js"></script>
+    <script src="../bower_components/lodash/lodash.js"></script>
+    <script src="../bower_components/jquery/dist/jquery.js"></script>
+    <script src="../bower_components/angular/angular.js"></script>
+    <script src="../bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+    <!-- endbower -->
+    <!-- endbuild -->
+</head>
+<body>
+
+    <!-- ========================================================= -->
+    <!-- Если отключен JS: -->
+    <noscript>
+        <div class="noscript-visible-block">
+            Ваш браузер не поддерживает JavaScript.
+        </div>
+    </noscript>
+
+    <!-- ========================================================= -->
+    <!-- Контейнер приложения: -->
+    <div ng-app="ngs">
+        <section ui-view></section>
+    </div>
+
+    <!-- ========================================================= -->
+    <!-- Сборка скриптов проекта: -->
+    <!-- build:js(.tmp) scripts/main.js -->
+    <!-- Шаблоны $templateCache -->
+    <script src="js/templates.js"></script>
+
+    <!-- Конфиги -->
+    <script src="js/config.js"></script>
+
+    <!-- Контроллеры -->
+    <script src="controllers/index.js"></script>
+
+    <!-- Фильтры -->
+    <script src="filters/index.js"></script>
+
+    <!-- Сервисы -->
+    <script src="services/index.js"></script>
+
+    <!-- Директивы -->
+    <script src="directives/index.js"></script>
+
+    <!-- Состояния (стейты) -->
+    <script src="states/index.js"></script>
+    <script src="states/index/controller.js"></script>
+
+    <!-- Компоненты -->
+    <script src="components/index.js"></script>
+
+    <!-- Скрипт приложения -->
+    <script src="app.js"></script>
+    <!-- endbuild -->
+
+</body>
+</html>
