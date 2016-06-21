@@ -7,7 +7,7 @@
  **/
 
 angular.module('ngs.services').provider('initialize', function () {
-    this.$get = function ($q, APIService, settingsService, $timeout, $translate, translateLoader) {
+    this.$get = function ($q, APIService, settingsService, $timeout, $translate, translateLoader, stateService) {
         return function () {
             var deferred = $q.defer();
 
@@ -42,7 +42,7 @@ angular.module('ngs.services').provider('initialize', function () {
 
                 // Таймаут для загрузки переводов
                 $timeout(() => {
-                    console.log($translate.instant('api_error_message'));
+                    stateService.showError($translate.instant('api_error_message'));
                 });
             });
 

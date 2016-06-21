@@ -41,9 +41,12 @@ angular.module('ngs.states', ['ui.router']).config(function ($stateProvider, $ur
         abstract: false,
         templateUrl: 'states/error/view.html',
         controller: 'errorCtrl',
+        params: {errors: null, executed: false},
         resolve: {
-            generic: function (initialize) {
-                return initialize();
+            function ($stateParams, initialize) {
+                if (!$stateParams.executed) {
+                    return initialize();
+                }
             }
         }
     });
