@@ -1,0 +1,5 @@
+.navigation-bar
+    ul.navigation-bar-menu
+        li.navigation-bar-menu-item(ng-repeat="section in sections", ng-class="{'navigation-bar-menu-item__active': section.state === currentState}")
+            a.navigation-bar-menu-item-link(ng-href="{{section.state}}")
+                span(ng-bind="section.title | translate")

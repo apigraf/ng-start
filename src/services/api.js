@@ -17,7 +17,9 @@ angular.module('ngs.services').service('APIService', function (Restangular) {
                     index_page: 'home'
                 },
                 translations: {
-                    demo_data: 'Демонстрационные данные. И использование переменных: {DATA}'
+                    DEMO_DATA: 'Демонстрационные данные. И использование переменных: {DATA}',
+                    PAGE_TITLE_HOME: 'Главная',
+                    PAGE_TITLE_ABOUT: 'О проекте'
                 }
             };
 

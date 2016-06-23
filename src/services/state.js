@@ -53,7 +53,7 @@ angular.module('ngs.services').service('stateService', function ($state, $stateP
         /**
          * Возвращает имя активного состояния
          */
-        getCurrent() {
+        current() {
             return $state.$current.name;
         }
 

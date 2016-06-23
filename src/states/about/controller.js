@@ -9,6 +9,7 @@
 angular.module('ngs.states').controller('aboutCtrl', function ($scope, StateCtrl) {
     class AboutCtrl extends StateCtrl {
         initialize() {
+            super.initialize();
         }
     }
 
