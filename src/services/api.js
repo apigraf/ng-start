@@ -13,7 +13,8 @@ angular.module('ngs.services').service('APIService', function (Restangular) {
             // TODO: Временная заглушка. Возвращаем данные. К примеру, локаль.
             var demoData = {
                 settings: {
-                    locale: 'ru'
+                    locale: 'ru',
+                    index_page: 'home'
                 },
                 translations: {
                     demo_data: 'Демонстрационные данные. И использование переменных: {DATA}'
