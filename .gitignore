@@ -4,6 +4,7 @@ node_modules/
 .dist-tmp/
 dist/
 docs/
+test_out/
 
 # Мои персональные (сорри):
 .idea/
