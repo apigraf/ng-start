@@ -12,7 +12,7 @@ describe('ngs', function() {
             browser.get('index.html#!/home');
         });
 
-        it('Должна должна отрендериться страница home, когда в адресной строке /home', function() {
+        it('Должна отрендериться страница home, когда в адресной строке /home', function() {
             expect(element.all(by.css('.page')).count()).toEqual(1);
         });
     });
