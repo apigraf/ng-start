@@ -1,0 +1,13 @@
+{
+  "init": {
+    "settings": {
+      "locale": "ru",
+      "index_page": "home"
+    },
+    "translations": {
+      "DEMO_DATA": "Демонстрационные данные. И использование переменных: {DATA}",
+      "PAGE_TITLE_HOME": "Главная",
+      "PAGE_TITLE_ABOUT": "О проекте"
+    }
+  }
+}

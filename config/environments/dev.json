@@ -1,4 +1,4 @@
 {
-  "APIURL": "/api/",
+  "APIURL": "http://localhost:8800/fake-api/",
   "CDNURL": ""
 }
