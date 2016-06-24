@@ -8,7 +8,8 @@
     "build": "gulp build",
     "clean": "gulp clean",
     "test.unit": "karma start test/karma.conf.js",
-    "test.e2e": "protractor test/protractor.conf.js"
+    "test.e2e": "protractor test/protractor.conf.js",
+    "tst": "webdriver-manager update"
   },
   "dependencies": {},
   "devDependencies": {
@@ -52,7 +53,6 @@
     "protractor": "3.3.0",
     "require-dir": "0.3.0",
     "run-sequence": "1.2.1",
-    "webdriver-manager": "10.0.4",
     "wiredep": "4.0.0"
   },
   "engines": {

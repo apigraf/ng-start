@@ -7,7 +7,6 @@ exports.config = {
 
     seleniumAddress: 'http://localhost:4444/wd/hub',
     directConnect: true,
-    chromeDriver: '../node_modules/webdriver-manager/selenium/chromedriver_2.21',
     capabilities: {
         browserName: 'chrome'
     },
