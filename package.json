@@ -4,8 +4,9 @@
   "scripts": {
     "postinstall": "bower install && webdriver-manager update",
     "docs": "grunt docs",
-    "serve": "gulp serve",
-    "build": "gulp build",
+    "serve.dev": "gulp serve",
+    "build.dev": "gulp build",
+    "build.prod": "gulp --env=prod build",
     "clean": "gulp clean",
     "test.unit": "karma start test/karma.conf.js",
     "test.e2e": "protractor test/protractor.conf.js",
