@@ -1,5 +1,5 @@
 <!doctype html>
-<html class="no-js">
+<html class="no-js" ng-app="ngs">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -68,10 +68,8 @@
     </noscript>
 
     <!-- ========================================================= -->
-    <!-- Контейнер приложения: -->
-    <div ng-app="ngs">
-        <section ui-view></section>
-    </div>
+    <!-- Контейнер стейтов приложения: -->
+    <section ui-view></section>
 
     <!-- ========================================================= -->
     <!-- Сборка скриптов проекта: -->

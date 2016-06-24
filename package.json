@@ -16,6 +16,7 @@
     "browser-sync": "2.13.0",
     "del": "2.2.0",
     "jasmine-core": "2.4.1",
+    "jasmine-spec-reporter": "2.5.0",
     "grunt": "1.0.1",
     "grunt-contrib-clean": "1.0.0",
     "grunt-contrib-connect": "1.0.2",
