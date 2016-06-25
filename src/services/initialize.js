@@ -29,11 +29,6 @@ angular.module('ngs.services').provider('initialize', function () {
                     // Устанавливаем текущую локаль
                     $translate.preferredLanguage(settingsService.get('locale'));
                     $translate.use(settingsService.get('locale'));
-                    
-                    // TODO: Удалить демонстрационный вывод перевода. Перенести в тесты.
-                    $timeout(() => {
-                        console.log($translate.instant('DEMO_DATA', {DATA: 'переменная_в_метке_локализации'}));
-                    });
                 }
                 
                 deferred.resolve();

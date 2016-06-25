@@ -3,4 +3,6 @@
         navigation-bar(sections="appSections", current-state="currentState")
     .page-content
         h1(data-translate="PAGE_TITLE_HOME")
+
+        p(ng-bind="demoText | translate:{DATA: 'я_переменная_в_метке_локализации'}")
     .page-footer

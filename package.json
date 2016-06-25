@@ -50,6 +50,7 @@
     "karma-jasmine": "1.0.2",
     "karma-junit-reporter": "1.0.0",
     "karma-phantomjs-launcher": "1.0.0",
+    "lodash": "4.13.1",
     "main-bower-files": "2.13.1",
     "phantomjs-prebuilt": "2.1.7",
     "protractor": "3.3.0",
