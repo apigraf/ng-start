@@ -6,7 +6,7 @@
  * Стейт страницы "Home"
  **/
 
-angular.module('ngs.states').controller('homeCtrl', function ($scope, StateCtrl, settingsService, $translate) {
+angular.module('ngs.states').controller('homeCtrl', function ($scope, StateCtrl) {
     class HomeCtrl extends StateCtrl {
         initialize() {
             super.initialize();
