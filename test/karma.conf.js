@@ -5,8 +5,6 @@ module.exports = function (config) {
     config.set({
         basePath: '..',
 
-        // TODO: Не коректно идёт подгрузка. Возможно, стоит использовать gulp-karma
-        // (тогда заоднем и protractor можно в gulp перенести - будет проще контролировать)
         files: _.concat(mainBowerFiles(
             {
                 "overrides": {
@@ -16,26 +14,19 @@ module.exports = function (config) {
                 }
             }),
             [
-                'src/filters/index.js',
-                'src/services/index.js',
-                'src/controllers/index.js',
-                'src/directives/index.js',
-                'src/components/index.js',
-                'src/states/index.js',
-
-                'src/**/*.js',
-                'src/app.js',
-
-                'test/unit/**/*.js'
+                '.dist-dev/js/config.js',
+                '.dist-dev/js/templates.js',
+                '.dist-dev/**/index.js',
+                '.dist-dev/**/!*.js',
+                '.dist-dev/**/*.js',
+                'test/unit/**/*.spec.js'
             ]
         ),
 
-        autoWatch: true,
-        singleRun: false,
+        // autoWatch: true,
+        // singleRun: false,
         colors: true,
-
         frameworks: ['jasmine'],
-
         browsers: ['Chrome'],
 
         plugins: [

@@ -3,7 +3,6 @@
 var gulp = require('gulp');
 var browserSync = require('browser-sync').create();
 var modRewrite = require('connect-modrewrite');
-var mainBowerFiles = require('main-bower-files');
 var del = require('del');
 var runSequence = require('run-sequence').use(gulp);
 
@@ -27,20 +26,6 @@ gulp.task('fonts-watch', ['fonts'], function () {
 });
 gulp.task('wiredep-watch', ['wiredep'], function () {
     browserSync.reload();
-});
-
-/**
- * Задача реализующая перенос файлов boewr_components в директорию .dist-dev для доступа с сервера разработки
- */
-gulp.task('bower-files', function(){
-    return gulp.src(mainBowerFiles({
-            "overrides": {
-                "modernizr": {
-                    "main": "modernizr.js"
-                }
-            }
-        }), {base: 'bower_components'})
-        .pipe(gulp.dest('.dist-dev/bower_components'));
 });
 
 /**
@@ -82,7 +67,7 @@ function addWatchers() {
 /**
  * Задача, запускающая сервер разработки
  */
-gulp.task('serve', ['config', 'wiredep', 'bower-files', 'images', 'fonts', 'scripts', 'styles', 'partials'], function () {
+gulp.task('serve', ['preserve'], function () {
     browserSyncInit(['.dist-dev', 'src']);
     addWatchers();
 });

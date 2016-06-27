@@ -6,6 +6,7 @@ var $ = require('gulp-load-plugins')();
 var env = gutil.env.env ? gutil.env.env : 'dev';
 var config = JSON.parse(fs.readFileSync('config/environments/' + env + '.json', 'utf-8'));
 var del = require('del');
+var mainBowerFiles = require('main-bower-files');
 
 gutil.log(gutil.colors.yellow('ENV is: ' + env));
 
@@ -168,6 +169,28 @@ gulp.task('clean', function (cb) {
  */
 gulp.task('post-clean', function (cb) {
     return del(['.dist-dev', '.dist-tmp'], cb);
+});
+
+/**
+ * Задача реализующая перенос файлов boewr_components в директорию .dist-dev
+ * для доступа с сервера разработки и для последующей сборки проекта
+ */
+gulp.task('bower-files', function(){
+    return gulp.src(mainBowerFiles({
+        "overrides": {
+            "modernizr": {
+                "main": "modernizr.js"
+            }
+        }
+    }), {base: 'bower_components'})
+        .pipe(gulp.dest('.dist-dev/bower_components'));
+});
+
+/**
+ * Задача, запускающая генерацию файлов для сервера разработки
+ */
+gulp.task('preserve', ['config', 'wiredep', 'bower-files', 'images', 'fonts', 'scripts', 'styles', 'partials'], function () {
+    return;
 });
 
 /**

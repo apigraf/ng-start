@@ -1,31 +1,23 @@
 'use strict';
 
 var gulp = require('gulp');
-var $ = require('gulp-load-plugins')();
-var wiredep = require('wiredep');
+var KarmaServer = require('karma').Server;
 
 /**
- * Задача реализующая запуск unit-тестов
+ * Задача реализующая однократный запуск unit-тестов
  */
-gulp.task('test-unit', function () {
-    var bowerDeps = wiredep({
-        directory: 'bower_components',
-        dependencies: true,
-        devDependencies: true
-    });
+gulp.task('test-unit-once', ['preserve'], function (done) {
+    new KarmaServer({
+        configFile: __dirname + '/../../test/karma.conf.js',
+        singleRun: true
+    }, done).start();
+});
 
-    var testFiles = bowerDeps.js.concat([
-        '.dist-dev/js/config.js',
-        '.dist-dev/js/templates.js',
-        '.dist-dev/**/index.js',
-        '.dist-dev/**/!*.js',
-        '.dist-dev/**/*.js',
-        'test/unit/**/*.spec.js'
-    ]);
-
-    return gulp.src(testFiles)
-        .pipe($.karma({
-            configFile: 'test/karma.conf.js',
-            action: 'watch'
-        }));
+/**
+ * Задача реализующая запуск unit-тестов и дальнейший перезапуск после изменений файлов проекта
+ */
+gulp.task('test-unit-tdd', ['preserve'], function (done) {
+    new KarmaServer({
+        configFile: __dirname + '/../../test/karma.conf.js',
+    }, done).start();
 });
