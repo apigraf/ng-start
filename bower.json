@@ -20,5 +20,10 @@
     "angular": "1.5.6",
     "jquery": "2.2.4",
     "lodash": "4.13.1"
+  },
+  "overrides": {
+    "json5": {
+      "main": "lib/json5.js"
+    }
   }
 }

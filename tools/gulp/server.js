@@ -43,14 +43,14 @@ gulp.task('bower-files', function(){
 });
 
 /**
- * Задача, запускающая сервер разработки
+ * Инициализация сервера
+ * @param baseDir
  */
-gulp.task('serve', ['config', 'wiredep', 'bower-files', 'images', 'fonts', 'scripts', 'styles', 'partials'], function () {
-    // Инициализация сервера
+function browserSyncInit(baseDir) {
     browserSync.init({
         startPath: '/',
         server: {
-            baseDir: ['.tmp', 'src'],
+            baseDir: baseDir,
             routes: {
                 "bower_components": "/bower_components"
             }
@@ -58,12 +58,16 @@ gulp.task('serve', ['config', 'wiredep', 'bower-files', 'images', 'fonts', 'scri
         middleware: [
             modRewrite(['!\.html|\.js|\.css|\.png|\.jpg|\.svg|\.ttf$ /index.html [L]'])
         ],
-        port: 3000,
+        port: 3002,
         browser: 'default',
         ghostMode: false
     });
+}
 
-    // Запускаем задачи "перезагрузки браузера" при изменении файлов проекта
+/**
+ * Запускаем задачи "перезагрузки браузера" при изменении файлов проекта
+ */
+function addWatchers() {
     gulp.watch('src/assets/styles/**/*.scss', ['styles-watch']);
     gulp.watch('src/assets/images/**/*', ['images-watch']);
     gulp.watch('src/assets/fonts/**/*', ['fonts-watch']);
@@ -72,4 +76,20 @@ gulp.task('serve', ['config', 'wiredep', 'bower-files', 'images', 'fonts', 'scri
     gulp.watch('bower.json', ['wiredep-watch']);
     gulp.watch('src/index.html', browserSync.reload);
     gulp.watch('.tmp/js/config.js', browserSync.reload);
+}
+
+/**
+ * Задача, запускающая сервер разработки
+ */
+gulp.task('serve', ['config', 'wiredep', 'bower-files', 'images', 'fonts', 'scripts', 'styles', 'partials'], function () {
+    browserSyncInit(['.tmp', 'src']);
+    addWatchers();
+});
+
+/**
+ * Задача, запускающая сервер с собранным проектом
+ */
+gulp.task('serve-dist', ['build'], function () {
+    browserSyncInit('dist');
+    addWatchers();
 });
