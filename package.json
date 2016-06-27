@@ -5,13 +5,16 @@
     "postinstall": "bower install",
     "docs": "grunt docs",
     "serve.dev": "gulp serve",
+    "serve.prod": "gulp --env=prod serve-dist",
     "build.dev": "gulp build",
     "build.prod": "gulp --env=prod build",
-    "clean": "gulp clean",
-    "test.unit": "gulp test-unit",
-    "test.e2e.src": "gulp test-e2e-src",
-    "test.e2e.dist": "gulp test-e2e-dist",
-    "fake-api": "gulp fake-api"
+    "test.unit.dev": "gulp test-unit",
+    "test.unit.prod": "gulp --env=prod test-unit",
+    "test.e2e.dev": "gulp test-e2e-src",
+    "test.e2e.prod": "gulp --env=prod test-e2e-dist",
+    "fake-api": "gulp fake-api",
+    "demo": "gulp demo",
+    "clean": "gulp clean"
   },
   "dependencies": {},
   "devDependencies": {

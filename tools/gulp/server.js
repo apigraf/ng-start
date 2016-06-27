@@ -5,6 +5,7 @@ var browserSync = require('browser-sync').create();
 var modRewrite = require('connect-modrewrite');
 var mainBowerFiles = require('main-bower-files');
 var del = require('del');
+var runSequence = require('run-sequence').use(gulp);
 
 /**
  * Задачи обеспечивающие зауск дочерних задач перед перезагрузкой браузера
@@ -92,4 +93,15 @@ gulp.task('serve', ['config', 'wiredep', 'bower-files', 'images', 'fonts', 'scri
 gulp.task('serve-dist', ['build'], function () {
     browserSyncInit('dist');
     addWatchers();
+});
+
+/**
+ * Задача, запускающая сервер разработки вместе с фейковым API
+ */
+gulp.task('demo', function(callback) {
+    runSequence(
+        'fake-api',
+        'serve',
+        callback
+    );
 });
