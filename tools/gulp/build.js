@@ -19,7 +19,7 @@ gulp.task('styles', function () {
             outputStyle: 'expanded'
         }))
         .pipe($.autoprefixer())
-        .pipe(gulp.dest('.tmp/styles'))
+        .pipe(gulp.dest('.dist-dev/styles'))
 });
 
 /**
@@ -28,7 +28,7 @@ gulp.task('styles', function () {
 gulp.task('scripts', function () {
     return gulp.src('src/**/*.js')
         //.pipe($.traceur()) // не будет работать под Windows
-        .pipe(gulp.dest('.tmp'))
+        .pipe(gulp.dest('.dist-dev'))
         .pipe($.size());
 });
 
@@ -46,7 +46,7 @@ gulp.task('partials', function () {
         }))
         .pipe($.templateCompile())
         .pipe($.concat('templates.js'))
-        .pipe(gulp.dest(".tmp/js"))
+        .pipe(gulp.dest(".dist-dev/js"))
         .pipe($.size());
 });
 
@@ -75,7 +75,7 @@ gulp.task('html', ['styles', 'scripts', 'partials'], function () {
  */
 gulp.task('images', function () {
     return gulp.src(['src/assets/images/**/*'])
-        .pipe(gulp.dest('.tmp/images'))
+        .pipe(gulp.dest('.dist-dev/images'))
         .pipe($.size());
 });
 
@@ -84,7 +84,7 @@ gulp.task('images', function () {
  */
 gulp.task('fonts', function () {
     return gulp.src(['src/assets/fonts/**/*'])
-        .pipe(gulp.dest('.tmp/fonts'))
+        .pipe(gulp.dest('.dist-dev/fonts'))
         .pipe($.size());
 });
 
@@ -153,21 +153,21 @@ gulp.task('config', function () {
                 }
             ]
         }))
-        .pipe(gulp.dest('.tmp/js'));
+        .pipe(gulp.dest('.dist-dev/js'));
 });
 
 /**
  * Задача очистки временных директорий
  */
 gulp.task('clean', function (cb) {
-    return del(['.tmp', '.dist-tmp', 'dist'], cb);
+    return del(['.dist-dev', '.dist-tmp', 'dist'], cb);
 });
 
 /**
  * Задача очистки временных директорий после сборки
  */
 gulp.task('post-clean', function (cb) {
-    return del(['.tmp', '.dist-tmp'], cb);
+    return del(['.dist-dev', '.dist-tmp'], cb);
 });
 
 /**

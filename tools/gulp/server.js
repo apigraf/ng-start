@@ -11,7 +11,7 @@ var runSequence = require('run-sequence').use(gulp);
  * Задачи обеспечивающие зауск дочерних задач перед перезагрузкой браузера
  */
 gulp.task('styles-watch', ['styles'], function () {
-    return gulp.src('.tmp/**/*.css').pipe(browserSync.reload({stream:true}));
+    return gulp.src('.dist-dev/**/*.css').pipe(browserSync.reload({stream:true}));
 });
 gulp.task('scripts-watch', ['scripts'], function () {
     browserSync.reload();
@@ -30,7 +30,7 @@ gulp.task('wiredep-watch', ['wiredep'], function () {
 });
 
 /**
- * Задача реализующая перенос файлов boewr_components в директорию .tmp для доступа с сервера разработки
+ * Задача реализующая перенос файлов boewr_components в директорию .dist-dev для доступа с сервера разработки
  */
 gulp.task('bower-files', function(){
     return gulp.src(mainBowerFiles({
@@ -40,7 +40,7 @@ gulp.task('bower-files', function(){
                 }
             }
         }), {base: 'bower_components'})
-        .pipe(gulp.dest('.tmp/bower_components'));
+        .pipe(gulp.dest('.dist-dev/bower_components'));
 });
 
 /**
@@ -76,14 +76,14 @@ function addWatchers() {
     gulp.watch('src/**/*.jade', ['partials-watch']);
     gulp.watch('bower.json', ['wiredep-watch']);
     gulp.watch('src/index.html', browserSync.reload);
-    gulp.watch('.tmp/js/config.js', browserSync.reload);
+    gulp.watch('.dist-dev/js/config.js', browserSync.reload);
 }
 
 /**
  * Задача, запускающая сервер разработки
  */
 gulp.task('serve', ['config', 'wiredep', 'bower-files', 'images', 'fonts', 'scripts', 'styles', 'partials'], function () {
-    browserSyncInit(['.tmp', 'src']);
+    browserSyncInit(['.dist-dev', 'src']);
     addWatchers();
 });
 

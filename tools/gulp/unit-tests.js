@@ -15,11 +15,11 @@ gulp.task('test-unit', function () {
     });
 
     var testFiles = bowerDeps.js.concat([
-        '.tmp/js/config.js',
-        '.tmp/js/templates.js',
-        '.tmp/**/index.js',
-        '.tmp/**/!*.js',
-        '.tmp/**/*.js',
+        '.dist-dev/js/config.js',
+        '.dist-dev/js/templates.js',
+        '.dist-dev/**/index.js',
+        '.dist-dev/**/!*.js',
+        '.dist-dev/**/*.js',
         'test/unit/**/*.spec.js'
     ]);
 
